@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from .views import handler404
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='administrate'),
     path('', include('reservation_manager.urls'), name='app_urls'),
     path('accounts/', include('allauth.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'reservation_system.views.handler404'
