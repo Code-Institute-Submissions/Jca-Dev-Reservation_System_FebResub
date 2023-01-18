@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib import messages
-from .models import Base, max_seats, Reservation
+from .models import Base, max_seats, Reservation, UserProfile
 from .forms import ReservationForm
 from datetime import datetime, timedelta
+from django.contrib.auth.decorators import login_required
 
 
 class Homepage(generic.ListView):
@@ -23,6 +24,10 @@ def Reservations(request):
             seats_available = max_seats - seats
             if limbo.party_size <= seats_available:
                 limbo.save()
+                profile = UserProfile.objects.get(user=request.user)
+                # Attach the user's profile to the reservation
+                Reservation.user_profile = profile
+                Reservation.save()
                 return render(request, 'reservation_complete.html')
             else:
                 messages.error(request, 'Sorry, there isnt enough seats available. please try another date/time.')
@@ -44,3 +49,16 @@ class Errors(generic.ListView):
 class Rescomp(generic.ListView):
     model = Base
     template_name = 'reservation_complete.html'
+
+
+@login_required
+def profile(request):
+    profile = get_object_or_404(UserProfile, user=request.user)
+    template = 'profile.html'
+    reservations = profile.reservations.all()
+
+    context = {
+        'reservations': reservations,
+    }
+
+    return render(request, template, context)
