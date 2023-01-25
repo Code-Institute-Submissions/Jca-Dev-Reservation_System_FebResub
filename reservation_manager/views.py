@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic
 from django.contrib import messages
 from .models import Base, max_seats, Reservation, UserProfile
-from .forms import ReservationForm
+from .forms import ReservationForm, EditReservationForm
 from datetime import datetime, timedelta
 from django.contrib.auth.decorators import login_required
 
@@ -12,6 +12,7 @@ class Homepage(generic.ListView):
     template_name = 'homepage.html'
 
 
+@login_required
 def Reservations(request):
     if request.method == 'POST':
         form = ReservationForm(request.POST)
@@ -25,15 +26,27 @@ def Reservations(request):
             if limbo.party_size <= seats_available:
                 limbo.save()
                 profile = UserProfile.objects.get(user=request.user)
-                # Attach the user's profile to the reservation
-                Reservation.user_profile = profile
-                Reservation.save()
-                return render(request, 'reservation_complete.html')
+                reservation = limbo
+                reservation.user_profile = profile
+                reservation.save()
+                return redirect(reverse('rescomp', args=[reservation.reservation_number]))
             else:
                 messages.error(request, 'Sorry, there isnt enough seats available. please try another date/time.')
     else:
         form = ReservationForm()
     return render(request, 'reservation_page.html', {'form': form})
+
+
+def Reservations_success(request, reservation_number):
+    reservation = get_object_or_404(Reservation, reservation_number=reservation_number)
+    print(reservation_number)
+
+    template = 'reservation_complete.html'
+    context = {
+        'reservation': reservation,
+    }
+
+    return render(request, template, context)
 
 
 class Menu(generic.ListView):
@@ -46,19 +59,51 @@ class Errors(generic.ListView):
     template_name = 'error_page.html'
 
 
-class Rescomp(generic.ListView):
-    model = Base
-    template_name = 'reservation_complete.html'
-
-
 @login_required
 def profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
     template = 'profile.html'
     reservations = profile.reservations.all()
+    print(profile)
 
     context = {
         'reservations': reservations,
+        'profile': profile
     }
 
     return render(request, template, context)
+
+
+@login_required
+def EditReservation(request, Reservation_id):
+
+    reservation = get_object_or_404(Reservation, pk=Reservation_id)
+    if request.method == 'POST':
+        form = EditReservationForm(request.POST, request.FILES, instance=reservation)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('profile', args=[Reservation.id]))
+        else:
+            messages.error(request, 'Sorry, there isnt enough seats available. please try another date/time.')
+    else:
+        form = ReservationForm()
+
+    template = 'edit_reservation.html'
+    context = {
+        'form': form,
+        'reservation': reservation,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def delete_product(request, product_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Only store owners can do that.')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.info(request, 'Product deleted!')
+    return redirect(reverse('products'))

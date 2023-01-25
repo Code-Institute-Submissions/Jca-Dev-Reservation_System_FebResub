@@ -167,3 +167,9 @@ h5 {
     width: fit-content;
     margin: auto;
 }
+
+@media (max-width: 670px){
+    .main-bkg {
+        width: 100%;
+    }
+}

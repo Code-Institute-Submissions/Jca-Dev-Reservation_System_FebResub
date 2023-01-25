@@ -7,6 +7,7 @@ urlpatterns = [
     path('jsi18n', JavaScriptCatalog.as_view(), name='js-catlog'),
     path('reservation_page', views.Reservations, name='reservations'),
     path('menu', views.Menu.as_view(), name='menu'),
-    path('reservation_complete', views.Rescomp.as_view(), name='rescomp'),
+    path('reservation_complete/<reservation_number>', views.Reservations_success, name='rescomp'),
     path('profile', views.profile, name='profile'),
+    path('edit_reservation', views.EditReservation, name='edit_reservation'),
 ]
