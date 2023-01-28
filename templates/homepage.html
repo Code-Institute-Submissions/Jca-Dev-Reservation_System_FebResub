@@ -1,14 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="content-box">
+<div class="content-box rounded">
     <h1 class="page-title">Welcome to Gastro!</h1>
-
+    <div class="container pt-3 d-flex justify-content-center">
+        <P>A warm and welcoming family run restaurant ready to serve delicious food in our pleasant atmosphere.<br> 
+            Come and visit us at: Gastro, Resto Street, New York NY 10187 
+        </P>
+    </div>
     <div class="row">
         <div class="col h-btn-con">
-            <a class="btn btn-primary shadow h-btn" href="{% url 'menu' %}">View Our Menu</a>
+            <a class="btn btn-secondary shadow h-btn" href="{% url 'menu' %}">View Our Menu</a>
         </div>
         <div class="col h-btn-con">
-            <a class="btn btn-primary shadow h-btn" href="{% url 'reservations' %}">Create
+            <a class="btn btn-secondary shadow h-btn" href="{% url 'reservations' %}">Make a
                     Reservation</a>
         </div>
     </div>

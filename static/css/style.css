@@ -7,12 +7,6 @@ body, html {
     overflow-y: auto;
    }
 
-html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
 body {
     background: url('/media/background.jpg') no-repeat center;
     background-color: black;
@@ -21,6 +15,12 @@ body {
     padding: 0;
     height: 100%;
     line-height: 1.65;
+    color: azure;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.chalk {
+    font-family: 'Walter Turncoat', cursive;
 }
 
 nav {
@@ -29,6 +29,7 @@ nav {
 }
 
 #logo {
+    font-family: 'Fondamento', cursive;
     padding-left: 10px;
 }
 
@@ -42,7 +43,7 @@ footer {
 }
 
 .main-bkg {
-    background-color: aliceblue;
+    background-color: #373737e6;
     padding: 10px;
     width: 60%;
     margin: auto;
@@ -50,7 +51,7 @@ footer {
 }
 
 .menu-bkg {
-    background-color: aliceblue;
+    background-color: #373737e6;
     padding: 10px;
     width: 70%;
     margin: auto;
@@ -60,6 +61,14 @@ footer {
     text-align: center;
     padding-bottom: 20%;
     margin-top: 20%;
+}
+
+.signup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 label {
@@ -73,14 +82,15 @@ label {
 }
 
 .content-box {
-    background: #ffffffc4;
-    padding-bottom: 14vw;
+    background: #373737e6;
+    padding-bottom: 7vw;
     width: 80%;
     margin: auto;
 }
 
 .page-title {
-    color: rgb(0, 0, 0);
+    font-family: 'Fondamento', cursive;
+    color: white;
     text-align: center;
     font-size: 5vw;
     padding-top: 2vw;
@@ -95,6 +105,14 @@ label {
     width: fit-content;
     text-align: center;
 }
+.form-control {
+    font-weight: bold;
+    border: none;
+}
+
+label {
+    color: white;
+}
 
 .asteriskField {
     display: none;
@@ -107,7 +125,6 @@ label {
 
 .h-btn {
     font-size: 3.5vw;
-    background: brown;
     border: none;
 }
 
@@ -146,14 +163,15 @@ i:hover {
 h1,
 h2 {
     text-align: center;
+    font-weight: bold;
 }
 
-h5 {
-    text-decoration: underline;
+h5{
+    text-shadow: 0px 7px 20px white;
 }
 
 .bdr {
-    border: solid black 2px;
+    border: solid gold 2px;
 }
 
 #div_id_name,

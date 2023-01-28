@@ -4,11 +4,7 @@
     <h1>RESERVATION COMPLETE!</h1>
     <h2>Thank you {{ reservation.name }}, We'll see you soon.</h2>
                 <div class="row">
-                    <div class="col">
-                        <small class="text-muted">Reservation Info:</small>
-                    </div>
-                </div>
-                    <table class="table table-sm mb-5">
+                    <table class="table table-sm mb-5 mt-5 text-white">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -26,6 +22,9 @@
                                 <td>{{ reservation.phone_number }}</td>
                                 <td>{{ reservation.party_size }}</td> 
                                 <td>{{ reservation.date_time }}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                         </tbody>
                     </table>

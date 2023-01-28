@@ -11,9 +11,10 @@
   <div class="continer">
     <div class="row">
       <div class="col-md-8 mt-3 offset-md-2">
-        <h3>{% trans "Login" %}</h3>
+        <h3 class="fw-bold">{% trans "Log in" %}</h3>
         <p>{% blocktrans %}Welcome back to Gastro. To create a reservation, please login. If
-          you have not created an account yet, then <a href="{{ signup_url }}">sign up</a>.{% endblocktrans %}</p>
+          you have not created an account yet, then <a class="text-white"
+           href="{{ signup_url }}">Register</a>{% endblocktrans %}</p>
       </div>
     </div>
   </div>
@@ -28,7 +29,7 @@
           {% if user.is_staff %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
-          <button class="primaryAction" type="submit">{% trans "Login" %}</button>
+          <button class="btn btn-secondary" type="submit">{% trans "Login" %}</button>
         </form>
       </div>
     </div>

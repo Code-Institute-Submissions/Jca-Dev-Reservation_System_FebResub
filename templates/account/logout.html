@@ -8,7 +8,7 @@
 <div class="space"></div>
 <div class="main-bkg">
   <div id="text-a">
-    <h3>{% trans "Logout" %}</h3>
+    <h3 class="fw-bold">{% trans "Logout" %}</h3>
 
     <p>{% trans 'Are you sure you want to logout?' %}</p>
 
@@ -17,7 +17,7 @@
       {% if redirect_field_value %}
       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
       {% endif %}
-      <button type="submit">{% trans 'Logout' %}</button>
+      <button class="btn btn-secondary" type="submit">{% trans 'Log out' %}</button>
     </form>
   </div>
 </div>
