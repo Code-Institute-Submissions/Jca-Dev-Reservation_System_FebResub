@@ -57,6 +57,10 @@ footer {
     margin: auto;
 }
 
+.clear {
+    color: #ffffff00;
+}
+
 #text-a {
     text-align: center;
     padding-bottom: 20%;
@@ -129,7 +133,7 @@ label {
 }
 
 .btn-sub {
-    margin-top: 1vw;
+    margin-top: 1em;
 }
 
 i:hover {
