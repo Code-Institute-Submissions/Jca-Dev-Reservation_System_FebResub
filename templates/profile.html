@@ -30,8 +30,8 @@
                                 <td>{{ reservation.party_size }}</td> 
                                 <td>{{ reservation.date_time }}</td>
                                 <td></td>
-                                <td><a class="text-success text-decoration-none" href="{% url 'edit_reservation' %}">Edit</a></td>
-                                <td><a class="text-danger text-decoration-none" href="#">Delete</a></td>
+                                <td><a class="text-success text-decoration-none" href="#">Edit</a></td>
+                                <td><a class="text-danger text-decoration-none" href="{% url 'delete_reservation' reservation.id %}">Delete</a></td>
                             </tr>
                         {% endfor %}
                     </tbody>

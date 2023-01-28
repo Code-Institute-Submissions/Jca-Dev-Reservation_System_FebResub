@@ -69,7 +69,13 @@
       </div>
     </nav>
   </header>
-
+  {% if messages %}
+    <div class="message m-0 p-0">
+        {% for message in messages %}
+        <p{% if message.tags %} class="{{ message.tags }} m-text text-center p-0 fs-4 fw-bold" {% endif %}>{{ message }}</p>
+        {% endfor %}
+    </div>
+  {% endif %}
   {% block content %}
   {% endblock %}
 
@@ -86,5 +92,11 @@
     </div>
   </footer>
 </body>
-
+<script>
+  $(document).ready(function() { 
+      setTimeout(function() {
+          $('.message').fadeOut('slow');
+      }, 4000);
+  });
+</script>
 </html>

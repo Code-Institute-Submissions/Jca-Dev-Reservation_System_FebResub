@@ -44,7 +44,7 @@ class Reservation(models.Model):
 
     def _generate_reservation_number(self):
         return uuid.uuid4().hex.upper()
-    
+
     def save(self, *args, **kwargs):
         if not self.reservation_number:
             self.reservation_number = self._generate_reservation_number()

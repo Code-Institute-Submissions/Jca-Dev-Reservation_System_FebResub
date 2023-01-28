@@ -128,19 +128,19 @@ i:hover {
     list-style-type: none;
 }
 
-.messages {
+.message {
     list-style-type: none;
-    margin-top: 2vw;
-    font-size: 24px;
-    padding: 0;
+    width: 100%;
+    position: absolute;
+    top: 2.6em;
 }
 
 .success {
-    background: greenyellow;
+    background: rgb(85, 255, 47);
 }
 
 .error {
-    background: #ff000063;
+    background: #ff0000;
 }
 
 h1,
@@ -171,5 +171,13 @@ h5 {
 @media (max-width: 670px){
     .main-bkg {
         width: 100%;
+    }
+
+    .m-text {
+        font-size: small!important;
+    }
+
+    .message {
+        top: 4.6em
     }
 }

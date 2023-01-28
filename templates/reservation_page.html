@@ -7,8 +7,9 @@
 <!-- Reservation Form-->
 <div class="main-bkg">
     <h3>Make A Reservation</h3>
+    <span>Date & Time: {% now "d/m/y H:i" %}</span>
     {% if user.is_authenticated %}
-    <form class="form-css" method="post" novalidate>
+    <form class="form-css" method="post">
         {% csrf_token %}
         {{ form|crispy }}
         <button type="submit" class="btn btn-primary btn-sub">Create Reservation</button>
@@ -19,13 +20,6 @@
         then <a class="link" href="{% url 'account_signup' %}">sign up</a>
         first.
     </p>
-    {% endif %}
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-            {% endfor %}
-    </ul>
     {% endif %}
 </div>
 {% endblock %}

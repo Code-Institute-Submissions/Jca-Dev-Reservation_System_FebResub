@@ -3,7 +3,8 @@ from django.views import generic
 from django.contrib import messages
 from .models import Base, max_seats, Reservation, UserProfile
 from .forms import ReservationForm, EditReservationForm
-from datetime import datetime, timedelta
+from datetime import timedelta
+from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 
 
@@ -14,12 +15,16 @@ class Homepage(generic.ListView):
 
 @login_required
 def Reservations(request):
+    now = timezone.localtime()
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         if form.is_valid():
             limbo = form.save(commit=False)
             seats = 0
             for data in Reservation.objects.all():
+                if limbo.date_time < now:
+                    messages.error(request, 'You cannot enter a date/time in the past.')
+                    return render(request, 'reservation_page.html', {'form': form})
                 if data.date_time - timedelta(hours=1) <= limbo.date_time and limbo.date_time <= data.date_time + timedelta(hours=1):
                     seats = seats + data.party_size
             seats_available = max_seats - seats
@@ -29,9 +34,11 @@ def Reservations(request):
                 reservation = limbo
                 reservation.user_profile = profile
                 reservation.save()
+                messages.success(request, 'Reservation Successfully Created')
                 return redirect(reverse('rescomp', args=[reservation.reservation_number]))
             else:
-                messages.error(request, 'Sorry, there isnt enough seats available. please try another date/time.')
+                messages.error(request, 'Sorry, there are not enough seats available. please try another date/time.')
+                return render(request, 'reservation_page.html', {'form': form})
     else:
         form = ReservationForm()
     return render(request, 'reservation_page.html', {'form': form})
@@ -39,7 +46,6 @@ def Reservations(request):
 
 def Reservations_success(request, reservation_number):
     reservation = get_object_or_404(Reservation, reservation_number=reservation_number)
-    print(reservation_number)
 
     template = 'reservation_complete.html'
     context = {
@@ -74,36 +80,33 @@ def profile(request):
     return render(request, template, context)
 
 
+#@login_required
+#def edit_reservation(request, reservation_number):
+#
+#    reservation = get_object_or_404(Reservation, pk=reservation_number)
+#    if request.method == 'POST':
+#        form = EditReservationForm(request.POST, request.FILES, instance=reservation)
+#        if form.is_valid():
+#            form.save()
+#            return redirect(reverse('profile', args=[reservation_number]))
+#        else:
+#            messages.error(request, 'Sorry, there isnt enough seats available. please try another date/time.')
+#    else:
+#        form = ReservationForm()
+#
+#    template = 'edit_reservation.html'
+#    context = {
+#        'form': form,
+#        'reservation': reservation,
+#    }
+#
+#    return render(request, template, context)
+
+
 @login_required
-def EditReservation(request, Reservation_id):
+def delete_reservation(request, reservation_id):
 
-    reservation = get_object_or_404(Reservation, pk=Reservation_id)
-    if request.method == 'POST':
-        form = EditReservationForm(request.POST, request.FILES, instance=reservation)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse('profile', args=[Reservation.id]))
-        else:
-            messages.error(request, 'Sorry, there isnt enough seats available. please try another date/time.')
-    else:
-        form = ReservationForm()
-
-    template = 'edit_reservation.html'
-    context = {
-        'form': form,
-        'reservation': reservation,
-    }
-
-    return render(request, template, context)
-
-
-@login_required
-def delete_product(request, product_id):
-    if not request.user.is_superuser:
-        messages.error(request, 'Only store owners can do that.')
-        return redirect(reverse('home'))
-
-    product = get_object_or_404(Product, pk=product_id)
-    product.delete()
-    messages.info(request, 'Product deleted!')
-    return redirect(reverse('products'))
+    reservation = get_object_or_404(Reservation, pk=reservation_id)
+    reservation.delete()
+    messages.success(request, 'Reservation Successfully Deleted')
+    return redirect(reverse('profile'))
