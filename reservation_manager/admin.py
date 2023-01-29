@@ -6,7 +6,7 @@ from .models import Reservation, UserProfile
 class admin_display(admin.ModelAdmin):
 
     list_display = ['name', 'date_time', 'user_profile', 'reservation_number']
-    list_filter = ['name', 'date_time', 'user_profile', 'reservation_number']
+    list_filter = ['name', 'date_time', 'user_profile']
     search_fields = ['name', 'date_time', 'user_profile', 'reservation_number']
 
 
