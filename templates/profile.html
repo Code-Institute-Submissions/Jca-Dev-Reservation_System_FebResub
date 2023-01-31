@@ -32,7 +32,7 @@
                                 <td>{{ reservation.date_time }}</td>
                                 <td></td>
                                 <td><a class="text-success text-decoration-none" href="{% url 'edit_reservation' reservation.id %}">Edit</a></td>
-                                <td><a class="text-danger text-decoration-none" href="{% url 'delete_reservation' reservation.id %}">Delete</a></td>
+                                <td><a class="text-danger text-decoration-none confirm-delete" href="{% url 'delete_reservation' reservation.id %}">Delete</a></td>
                             </tr>
                         {% endfor %}
                     </tbody>
@@ -45,4 +45,12 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+    <script type="text/javascript">
+        $(document).on('click', '.confirm-delete', function(){
+            return confirm('Are you sure you want to delete your reservation?');
+            });
+    </script>
 {% endblock %}
