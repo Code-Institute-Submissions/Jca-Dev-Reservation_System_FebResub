@@ -4,6 +4,23 @@
     <a href="https://reservation-system-jca.herokuapp.com/">Click Here</a> to go to the live website.
 </p>
 <p>This website follows the mobile first approach and is responsive for mobile devices as well as desktop.</p>
+<hr>
+
+<h1>Planning</h1>
+<hr>
+<h2>Storyboard used <a href="https://github.com/users/Jca-Dev/projects/3">Here</a></h2>
+<p>I used figma wireframes to plan the look and layout of the project. After some review of the project I changed the color scheme of the website.</p>
+
+![Homepage Preview](media/homepage.png)
+<hr>
+
+![Menu Page Preview](media/menu.png)
+<hr>
+
+![Reservation Page Preview](media/res.png)
+<hr>
+
+![Profile Page Preview](media/profile.png)
 
 <hr>
 <h1>Design And Features</h1>
@@ -38,7 +55,7 @@ The user will know where they are on the site as each page has a header displayi
 
 <h2>Future features</h2>
 <ul>
-    <li></li>
+    <li>I would like to add a menu favourites to the profile page so users can add their menu preferences.</li>
 </ul>
 <hr>
 
@@ -62,6 +79,7 @@ The user will know where they are on the site as each page has a header displayi
     <li>AWS - amazon hosting service S3 hosts the required static files.</li>
     <li>Database - elephantSQL.</li>
     <li>Pytest - Automated testing.</li>
+    <li>Figma - Wireframes for design.</li>
 </ul>
 <hr>
 <h1>Deployment</h1>
@@ -78,14 +96,14 @@ The page is now published and the link is in the settings section under Domains.
 
 <h2>Making a Local Clone</h2>
 <ol>
-<li>Log in to GitHub and locate the [GitHub Repository](https://github.com/)</li>
-<li>Under the repository name, click "Clone or download".</li>
-<li>To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.</li>
-<li>Open Git Bash</li>
-<li>Change the current working directory to the location where you want the cloned directory to be made.</li>
-<li>Type `git clone`, and then paste the URL you copied in Step 3.</li>
-<li>Press Enter. Your local clone will be created.</li>
-<li>Create a new Heroku app and follow the steps in Heroku deployment above.</li>
+    <li>Log in to GitHub and locate the [GitHub Repository](https://github.com/)</li>
+    <li>Under the repository name, click "Clone or download".</li>
+    <li>To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.</li>
+    <li>Open Git Bash</li>
+    <li>Change the current working directory to the location where you want the cloned directory to be made.</li>
+    <li>Type `git clone`, and then paste the URL you copied in Step 3.</li>
+    <li>Press Enter. Your local clone will be created.</li>
+    <li>Create a new Heroku app and follow the steps in Heroku deployment above.</li>
 </ol>
 
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) for retrieve pictures and more detailed explanations of the above process.
