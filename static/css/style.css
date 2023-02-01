@@ -202,4 +202,26 @@ h5{
     .message {
         top: 4.6em
     }
+
+    .table-responsive, .h-content {
+    font-size: 0.7rem;
+    }
+
+    .h-btn {
+        width: max-content;
+    }
+
+    .signup {
+        width: min-content;
+        margin: auto;
+    }
+}
+
+@media (max-width: 400px){
+    .signup {
+        align-items: stretch;
+        font-size: larger;
+        width: min-content;
+        margin: auto;
+    }
 }
