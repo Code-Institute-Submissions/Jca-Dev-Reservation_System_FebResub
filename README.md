@@ -112,8 +112,10 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 <h1>Testing</h1>
 <h2>Manual test</h2>
 <ul>
-    <li>Given invalid input such as letters and incorrect amount of data, both resulting in a error message as expected.</li>
-    <li>Tried submitting blank forms resulting in error messages as expected.</li>
+    <li>Given invalid input such as letters and incorrect amount of data - both resulting in a error message as expected.</li>
+    <li>Tried submitting blank forms - resulting in error messages as expected.</li>
+    <li>Tried submitting reservation exceeding seat limit - request resulting in error messages as expected.</li>
+    <li>Tried submitting reservation in a past date - resulting in error messages as expected.</li>
 </ul>
 <h2>Browsers</h2>
 <ul>
@@ -138,31 +140,32 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 <ul>
     <li><a href="https://search.google.com/test/mobile-friendly" target="_blank" rel="noopener">Google mobile friendly test Service</a></li>
 
-![Google Mobile]()
+![Google Mobile](media/mobile.png)
     <li><a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Markup Validation Service</a></li>
 
-![W3C HTML]()
+![W3C HTML](media/w3ch.png)
     <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener">W3C CSS Validation Service</a></li>
 
-![W3C CSS]()
+![W3C CSS](media/w3cc.png)
     <li><a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noopener">Google Chrome Lighthouse</a></li>
 
-![Lighthouse Test]()
+![Lighthouse Test](media/lighthouse.png)
     <li><a href="https://jshint.com/" target="_blank" rel="noopener">JSHint Javascript Validation Service</a></li>
+
+![JSHint Test](media/jshint.png)
 </ul>
 <h2>Unit Tests</h2>
-<p></p>
+<p>Additionally I ran some automated tests.</p>
 
+![Automated Test](media/test.png)
 <h2>Bugs & Fixes</h2>
 <ul>
-   <li></li>
-   <li></li>
+   <li>mobile display - various pages font content was too big causing the text to display further than the screen width so the user would have to side scroll on the page ruining the UX. - fix added extra @media to the css scaling font size and adjusting the flex types on forms.</li>
 </ul>
 
 <h2>Known Bugs</h2>
 <ul>
-    <li></li>
-    <li></li>
+    <li>On mobile display opening the dropdown menu while a message is displayed shows the message overlapping the menu options.</li>
 </ul>
 <hr>
 <h2>Sources/Credits</h2>
