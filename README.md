@@ -6,6 +6,16 @@
 <p>This website follows the mobile first approach and is responsive for mobile devices as well as desktop.</p>
 <hr>
 
+<h1>User Experience (UX)</h1>
+<h2>Goals</h2>
+<ul>
+    <li>Users can easily book and manage their reservations for the restaurant online.</li>
+    <li>Show a clean, clear, accessible and easily navigable website for the user.</li>
+    <li>Users return to show/recommend service to others.</li>
+    <li>Frequent users connect via the social media platforms for information and updates.</li>
+</ul>
+
+<hr>
 <h1>Planning</h1>
 <hr>
 <h2>Storyboard used <a href="https://github.com/users/Jca-Dev/projects/3">Here</a></h2>
@@ -52,6 +62,29 @@
 <p>The user navigates through the site with the buttons on screen and the navbar. <br>
 The user will know where they are on the site as each page has a header displaying the page name. apart from the landing page.</p>
 
+![Nav](media/nav.png)
+
+<h2>Logo</h2>
+<p>The logo is the name of the restaurant. It sits in the top left on the page in each window and when you click on it you go to the homepage.</p>
+
+![Nav](media/logo.png)
+
+<h2>Reservation form</h2>
+<p>The reservation form collects the users name, phone number, date and time they want to reserve for and the amount of seats to reserve.</p>
+
+![Nav](media/res-form.png)
+
+<h2>Profile page</h2>
+<p>On the profile page the user can see their reservation information for all reservations they have created in creation date order - newest first. <br> The user can edit or delete their reservations from this page.</p>
+
+![Nav](media/profile-a.png)
+
+<h2>Footer</h2>
+<p>The Footer floats on the bottom of the screen showing the user all the social media links to the company. <br>
+The Footer is designed not to be obtrusive to the user by being dark and thin with minimal content.</p>
+
+![Nav](media/profile-a.png)
+
 <h2>Future features</h2>
 <ul>
     <li>I would like to add a menu favourites to the profile page so users can add their menu preferences.</li>
@@ -86,10 +119,19 @@ The user will know where they are on the site as each page has a header displayi
 <h2>Heroku</h2>
 The project was deployed to Heroku via GitHub by:
 <ol>
-    <li>Logging Into Heroku, creating a new project, going to the settings page and adding the variables for my database and AWS with all enviroment keys ect.</li>
+    <li>Logging Into Heroku, creating a new project, going to the settings page and adding the required variables.</li>
+    <ul>
+        <span><strong>Variables required:</strong></span>
+        <li>AWS_ACCESS_KEY_ID - links AWS to heroku.</li>
+        <li>AWS_SECRET_ACCESS_KEY - links AWS to heroku.</li>
+        <li>DATABASE_URL - links database to heroku.</li>
+        <li>SECRET_KEY - authorises heroku to use the app.</li>
+        <li>USE_AWS - tells heroku to use AWS to serve static files.</li>
+    </ul>
     <li>Going to deploy, selecting deployment method as GitHub and typing in the GitHub repository name.</li>
     <li>Finally selecting deploy branch to manually deploy or select automatic deployment which allows Heroku to rebuild the project after each push to GitHub.</li>
 </ol>
+!Important make sure to set Debug in the settings.py file to False. <br>
 The page is now published and the link is in the settings section under Domains.
 
 <br>
@@ -160,7 +202,9 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 ![Automated Test](media/test.png)
 <h2>Bugs & Fixes</h2>
 <ul>
-   <li>mobile display - various pages font content was too big causing the text to display further than the screen width so the user would have to side scroll on the page ruining the UX. - fix added extra @media to the css scaling font size and adjusting the flex types on forms.</li>
+   <li>Mobile display - various pages font content was too big causing the text to display further than the screen width so the user would have to side scroll on the page ruining the UX. - fix added extra @media to the css scaling font size and adjusting the flex types on forms.</li>
+   <li>Footer - the footer was overlapping buttons and content. - fix I used a div to create an empty space above the footer.</li>
+   <li>Forms - the forms on mobile platforms wouldn't align. - fix I added extra media queries to the css for smaller screen width and changed the way the form was flex wrapped.</li>
 </ul>
 
 <h2>Known Bugs</h2>
