@@ -47,15 +47,15 @@
     <li>Walter Turncoat - is for the menu page text to make it look like chalk.</li>
     <li>Fondamento - is for the logo and page headings, It gives a rustic feel to the webpage.</li>
 </ul>
-<hr>
+
 <h2>Navigation</h2>
-<hr>
 <p>The user navigates through the site with the buttons on screen and the navbar. <br>
 The user will know where they are on the site as each page has a header displaying the page name. apart from the landing page.</p>
 
 <h2>Future features</h2>
 <ul>
     <li>I would like to add a menu favourites to the profile page so users can add their menu preferences.</li>
+    <li>I would like to add auto reservation deletion after 5 days.</li>
 </ul>
 <hr>
 

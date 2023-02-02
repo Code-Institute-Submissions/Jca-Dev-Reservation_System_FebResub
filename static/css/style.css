@@ -1,11 +1,13 @@
-body, html {
+/* General */
+body,
+html {
     width: 100vw;
     min-width: 100vw;
     max-width: 100vw;
-   
+
     overflow-x: hidden;
     overflow-y: auto;
-   }
+}
 
 body {
     background: url('/media/background.jpg') no-repeat center;
@@ -19,27 +21,18 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
-.chalk {
-    font-family: 'Walter Turncoat', cursive;
+h1,
+h2 {
+    text-align: center;
+    font-weight: bold;
 }
 
-nav {
-    overflow: auto;
-    margin-bottom: 3rem;
-}
-
-#logo {
-    font-family: 'Fondamento', cursive;
-    padding-left: 10px;
+h5 {
+    text-shadow: 0px 7px 20px white;
 }
 
 .txt {
     font-size: 17px;
-}
-
-footer {
-    bottom: 0;
-    width: 100%;
 }
 
 .main-bkg {
@@ -51,45 +44,20 @@ footer {
 }
 
 .menu-bkg {
-    background-color: #373737e6;
     padding: 10px;
     width: 70%;
     margin: auto;
+    border: solid #7e6443 9px;
 }
 
-.clear {
-    color: #ffffff00;
-}
-
-#text-a {
-    text-align: center;
-    padding-bottom: 20%;
-    margin-top: 20%;
-}
-
-.signup {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    align-content: center;
-}
-
-label {
-    color: black;
-    font-weight: bold;
+i:hover {
+    color: lightblue;
+    font-size: 1.6vw;
 }
 
 #id_remember {
     opacity: 100;
     position: inherit;
-}
-
-.content-box {
-    background: #373737e6;
-    padding-bottom: 7vw;
-    width: 80%;
-    margin: auto;
 }
 
 .page-title {
@@ -100,45 +68,25 @@ label {
     padding-top: 2vw;
 }
 
-.space {
-    padding: 10px;
-}
-
-.form-css {
-    margin: auto;
-    width: fit-content;
-    text-align: center;
-}
-.form-control {
-    font-weight: bold;
-    border: none;
-}
-
-label {
-    color: white;
-}
-
-.asteriskField {
-    display: none;
-}
-
-.h-btn-con {
-    text-align: center;
-    margin-top: 11vw;
-}
-
-.h-btn {
-    font-size: 3.5vw;
-    border: none;
-}
-
+/* Submit buttons */
 .btn-sub {
     margin-top: 1em;
 }
 
-i:hover {
-    color: lightblue;
-    font-size: 1.6vw;
+/* Nav Bar */
+nav {
+    overflow: auto;
+    margin-bottom: 3rem;
+}
+
+#logo {
+    font-family: 'Fondamento', cursive;
+    padding-left: 10px;
+}
+
+/* Menu Page */
+.chalk {
+    font-family: 'Walter Turncoat', cursive;
 }
 
 .menu-cont {
@@ -149,6 +97,78 @@ i:hover {
     list-style-type: none;
 }
 
+/* Footer */
+footer {
+    bottom: 0;
+    width: 100%;
+}
+
+.clear {
+    color: #ffffff00;
+}
+
+/* Register page */
+.signup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+/* forms */
+label {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.form-css {
+    margin: auto;
+    width: fit-content;
+    text-align: center;
+}
+
+.form-control {
+    font-weight: bold;
+    border: none;
+}
+
+.asteriskField {
+    display: none;
+}
+
+#div_id_name,
+#div_id_phone_number,
+#div_id_date_time,
+#div_id_party_size {
+    margin-top: 5px;
+}
+
+#id_party_size {
+    width: fit-content;
+    margin: auto;
+}
+
+
+/* Homepage */
+.h-btn-con {
+    text-align: center;
+    margin-top: 11vw;
+}
+
+.h-btn {
+    font-size: 3.5vw;
+    border: none;
+}
+
+.content-box {
+    background: #373737e6;
+    padding-bottom: 7vw;
+    width: 80%;
+    margin: auto;
+}
+
+/* Messages */
 .message {
     list-style-type: none;
     width: 100%;
@@ -164,47 +184,23 @@ i:hover {
     background: #ff0000;
 }
 
-h1,
-h2 {
-    text-align: center;
-    font-weight: bold;
-}
-
-h5{
-    text-shadow: 0px 7px 20px white;
-}
-
-.bdr {
-    border: solid gold 2px;
-}
-
-#div_id_name,
-#div_id_phone_number,
-#div_id_date_time,
-#div_id_party_size {
-    margin-top: 5px;
-}
-
-#id_party_size {
-    width: fit-content;
-    margin: auto;
-}
-
-@media (max-width: 670px){
+/* Mobile responsive */
+@media (max-width: 670px) {
     .main-bkg {
         width: 100%;
     }
 
     .m-text {
-        font-size: small!important;
+        font-size: small !important;
     }
 
     .message {
         top: 4.6em
     }
 
-    .table-responsive, .h-content {
-    font-size: 0.7rem;
+    .table-responsive,
+    .h-content {
+        font-size: 0.7rem;
     }
 
     .h-btn {
@@ -217,7 +213,7 @@ h5{
     }
 }
 
-@media (max-width: 400px){
+@media (max-width: 400px) {
     .signup {
         align-items: stretch;
         font-size: larger;

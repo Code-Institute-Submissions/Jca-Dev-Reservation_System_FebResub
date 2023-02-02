@@ -22,9 +22,11 @@ def Reservations(request):
             limbo = form.save(commit=False)
             seats = 0
             for data in Reservation.objects.all():
+                # check the date and time are not in the past #
                 if limbo.date_time < now:
                     messages.error(request, 'You cannot enter a date/time in the past.')
                     return render(request, 'reservation_page.html', {'form': form})
+                # check the date, time and seats are available in that 1 hour window #
                 if data.date_time - timedelta(hours=1) <= limbo.date_time and limbo.date_time <= data.date_time + timedelta(hours=1):
                     seats = seats + data.party_size
             seats_available = max_seats - seats

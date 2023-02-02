@@ -33,6 +33,7 @@
 <body>
 
   <header>
+    <!-- Nav bar start -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">Gastro</a>
@@ -75,6 +76,7 @@
         </div>
       </div>
     </nav>
+    <!-- Nav bar end -->
   </header>
   {% if messages %}
   <div class="message m-0 p-0">
@@ -88,6 +90,7 @@
   <div>
     <hr class="mb-5 clear">
   </div>
+  <!-- footer start -->
   <footer class="text-center text-white fixed-bottom" style="background-color: #4c4c4c;">
     <div class="container pt-0">
       <div class="mb-0">
@@ -100,6 +103,8 @@
       </div>
     </div>
   </footer>
+  <!--footer end -->
+  <!-- below is the message timer function set to fade out after 4 seconds -->
   {% block postloadjs %}
   <script>
     $(document).ready(function () {
