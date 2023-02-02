@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'reservation_manager',
     'storages',
-    'pytest',
 ]
 
 SITE_ID = 1
